@@ -6,11 +6,20 @@ const UsuariosController = require('./controllers/usuarios.controller');
 const ProyectosController= require('./controllers/proyectos.controller');
 const jwtController = require("./controllers/jwt.controller");
 const {check} = require('express-validator');
+const cors = require('cors');
 const server = express();
 
 server.use(helmet());
+server.use((req, res, next) => {
+    res.header("Access-Control-Allow-Credentials", true);
+    next();
+})
 server.use(bodyParser.json());
 server.use(cookieParser());
+server.use(cors({
+    "origin":"http://localhost:4200"
+}));
+
 server.use(jwtController.checkToken);
 
 server.get('/inicio', (req,res) => {
@@ -45,7 +54,7 @@ server.put('/actualizarUsuario', [
     check('offer').isString(),
     check('id').isNumeric()
     
-] , UsuariosController.updateSingleUser);
+], UsuariosController.updateSingleUser);
 server.delete('/borrarUsuario/:id', UsuariosController.deleteUser);
 
 //Proyectos
@@ -58,7 +67,7 @@ check('area').isString(),
 check('description').isString(),
 check('search').isString(),
 check('status').isString()
-] , ProyectosController.insertSingleProject);
+],  ProyectosController.insertSingleProject);
 server.put('/actualizarProyecto', [
     check('id').isNumeric,
     check('project_name').isString().escape().trim(),

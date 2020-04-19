@@ -1,6 +1,6 @@
 const proyectosModel = require('../models/proyectos.model');
 const {validationResult} = require('express-validator');
-const jwt = require('../controllers/jwt.controller');
+
 
 exports.listaProyectos = async(req,res) => {
     try {
@@ -39,7 +39,7 @@ exports.insertSingleProject= async (req,res) => {
         const description = req.body.description;
         const search = req.body.search;
         const status = req.body.status;
-        const FK_id_user = params.sello[0].id;
+        const FK_id_user = req.UsuarioID;
         try {
             
             const result = await proyectosModel.insertProject(project_name, area, description, search, status, FK_id_user)

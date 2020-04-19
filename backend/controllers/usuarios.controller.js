@@ -122,7 +122,7 @@ exports.login = async (req, res) => {
             //para trabajar en local pasaremos la clave token para ir viendo su valor mientras desarrollamos desde el cliente
             res.send({
               message: "Ok, tu contraseña coincide, estás autorizado",
-              token: token
+              token: token,
             });
           }
         });
