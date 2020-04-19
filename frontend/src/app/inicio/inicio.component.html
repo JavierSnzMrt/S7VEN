@@ -1,0 +1,6 @@
+<h1>Login</h1>
+<form (ngForm)="LoginForm" #myForm="ngForm" (ngSubmit)="sendForm()">
+    Email: <input type="text" [(ngModel)]="email" name="email">
+    Password: <input type="password" [(ngModel)]="password" name="password">
+    <button type="submit">Send</button>
+</form>

@@ -1,0 +1,13 @@
+
+<h1>Registro Usuario</h1>
+<form (ngForm)="RegisterForm" #myForm="ngForm" (ngSubmit)="submitForm()">
+    Name: <input type="text" [(ngModel)]="name" name="name">
+    Email: <input type="text" [(ngModel)]="email" name="email">
+    Password: <input type="password" [(ngModel)]="password" name="password">
+    City: <input type="text" [(ngModel)]="city" name="city">
+    Age: <input type="text" [(ngModel)]="age" name="age">
+    Training: <input type="text" [(ngModel)]="training" name="training">
+    Experience: <input type="text" [(ngModel)]="experience" name="experience">
+    Offer: <input type="text" [(ngModel)]="offer" name="offer">
+    <button type="submit">Send</button>
+</form>

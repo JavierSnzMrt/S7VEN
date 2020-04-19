@@ -1,0 +1,9 @@
+<h1>Registro</h1>
+<form (ngForm)="NuevoProyectoForm" #myForm="ngForm" (ngSubmit)="postNewProject()">
+    Project_Name: <input type="text" [(ngModel)]="project_name" name="project_name">
+    Area: <input type="text" [(ngModel)]="area" name="area">
+    Description: <input type="text" [(ngModel)]="description" name="description">
+    Search: <input type="text" [(ngModel)]="search" name="search">
+    Status: <input type="text" [(ngModel)]="status" name="status">
+    <button type="submit">Send</button>
+</form>
