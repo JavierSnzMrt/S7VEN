@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-proyectos',
@@ -9,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class ProyectosComponent implements OnInit {
 
+  NuevoProyectoForm: FormGroup;
+  
   constructor(private _http: HttpClient, private _router: Router) { }
 
   project_name: string;

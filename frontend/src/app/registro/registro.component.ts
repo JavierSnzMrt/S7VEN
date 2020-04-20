@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-registro',
@@ -7,6 +8,8 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent implements OnInit {
+
+  RegisterForm: FormGroup;
 
   constructor(private _user: UserService) { }
 
@@ -18,6 +21,8 @@ export class RegistroComponent implements OnInit {
   training: string;
   experience: string;
   offer: string;
+
+  
 
   submitForm(){
     this._user.register(this.name, this.email, this.password, this.city, this.age, this.training, this.experience, this.offer)
