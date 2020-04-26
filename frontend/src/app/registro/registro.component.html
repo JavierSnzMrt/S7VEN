@@ -1,13 +1,177 @@
-
-<h1>Registro Usuario</h1>
-<form (ngForm)="RegisterForm" #myForm="ngForm" (ngSubmit)="submitForm()">
-    Name: <input type="text" [(ngModel)]="name" name="name">
-    Email: <input type="text" [(ngModel)]="email" name="email">
-    Password: <input type="password" [(ngModel)]="password" name="password">
-    City: <input type="text" [(ngModel)]="city" name="city">
-    Age: <input type="text" [(ngModel)]="age" name="age">
-    Training: <input type="text" [(ngModel)]="training" name="training">
-    Experience: <input type="text" [(ngModel)]="experience" name="experience">
-    Offer: <input type="text" [(ngModel)]="offer" name="offer">
-    <button type="submit">Send</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-light sticky-top navbar-expand-lg navbar-light bg-light"
+      id="navbar"
+      style="background-color: #e3f2fd;"
+    >
+      <a class="navbar-brand" href="#">
+        <img
+          class="imagen-nav"
+          src="https://s7venapp.com/wp-content/uploads/2020/04/cropped-Cover_ColorIcon-e1587720926355-1.png"
+          alt="logo"
+        />
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">¿Qué hacemos?</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">El equipo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/inicio">Accede</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="supercontainer">
+      <div class="container1">
+        <form
+          (ngForm)="RegisterForm"
+          #myForm="ngForm"
+          (ngSubmit)="submitForm()"
+        >
+          <h3>Registro</h3>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Email</label>
+              <input
+                type="text"
+                class="form-control"
+                id="email"
+                placeholder="name@example.com"
+                [(ngModel)]="email"
+                name="email"
+                required
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label>Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                placeholder="xxxxxxxxx"
+                [(ngModel)]="password"
+                name="password"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Nombre</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                placeholder="¿Cómo te llamas?"
+                [(ngModel)]="name"
+                name="name"
+                required
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label>Área de conocimiento</label>
+              <input
+                type="text"
+                class="form-control"
+                id="user_area"
+                placeholder="Ingeniería, derecho..."
+                [(ngModel)]="user_area"
+                name="user_area"
+                required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Edad</label>
+              <input
+                type="number"
+                class="form-control"
+                id="age"
+                placeholder="Añade tu edad"
+                [(ngModel)]="age"
+                name="age"
+                required
+              />
+            </div>
+            <div class="form-group col-md-6">
+              <label>Ciudad</label>
+              <input
+                type="text"
+                class="form-control"
+                id="city"
+                placeholder="Añade tu ciudad"
+                [(ngModel)]="city"
+                name="city"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label>Formación</label>
+              <textarea
+                class="form-control"
+                id="training"
+                placeholder="¿Qué formación tienes?"
+                [(ngModel)]="training"
+                name="training"
+                required
+              ></textarea>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label>Experiencia</label>
+              <textarea
+                class="form-control"
+                id="experience"
+                placeholder="¿En qué campos tienes experiencia?"
+                [(ngModel)]="experience"
+                name="experience"
+                required
+              ></textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>¿Qué ofreces?</label>
+            <textarea
+              type="textarea"
+              class="form-control"
+              id="offer"
+              placeholder="¿Qué ofreces a otros usuarios"
+              [(ngModel)]="offer"
+              name="offer"
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">¡Regístrame!</button>
+          <p>
+            <a href="/inicio">¡Si ya eres usuario, accede a tu cuenta!--></a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

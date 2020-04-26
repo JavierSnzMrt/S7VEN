@@ -25,15 +25,16 @@ export class UserService {
     })
   }
 
-  register(name:string, email:string, password:string, city:string, age:number, training:string, experience:string, offer:string ){
+  register(name:string, email:string, password:string, age:number, city:string, training:string, experience:string, user_area:string, offer:string ){
     this._http.post("http://localhost:3000/nuevoUsuario", {
       "name": name,
       "email": email,
       "password": password,
-      "city": city,
       "age": age,
+      "city": city,
       "training": training,
       "experience": experience,
+      "user_area": user_area,
       "offer": offer
     })
     .subscribe((responseAPI) => {
@@ -50,4 +51,5 @@ export class UserService {
     this._router.navigateByUrl("/login");
 
   }
+
 }

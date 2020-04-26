@@ -32,7 +32,14 @@ export class ProyectosComponent implements OnInit {
       this._router.navigateByUrl("/verProyectos")
     })
   }
+
+  proyectos: object;
+  
   ngOnInit(): void {
+    this._http.post("http://localhost:3000/nuevoProyecto", {withCredentials: true})
+    .subscribe((responseAPI) => {
+      this.proyectos = responseAPI;
+    })
   }
 
 }

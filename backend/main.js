@@ -29,6 +29,7 @@ server.get('/inicio', (req,res) => {
 //Usuarios
 server.get('/verUsuarios', UsuariosController.listaUsuarios);
 server.get('/verUsuario/:user_area', UsuariosController.getSingleUser);
+server.get('/verUsuario/:id', UsuariosController.getSingleUserID);
 server.post('/nuevoUsuario', [
     check('name').isString().escape().trim(),
     check('email').isString(),

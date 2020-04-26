@@ -16,16 +16,17 @@ export class RegistroComponent implements OnInit {
   name: string;
   email: string;
   password: string;
-  city: string;
   age: number;
+  city: string;
   training: string;
   experience: string;
+  user_area:string;
   offer: string;
 
   
 
   submitForm(){
-    this._user.register(this.name, this.email, this.password, this.city, this.age, this.training, this.experience, this.offer)
+    this._user.register(this.name, this.email, this.password, this.age, this.city, this.training, this.experience, this.user_area, this.offer)
   }
 
   ngOnInit(): void {

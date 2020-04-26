@@ -1,9 +1,73 @@
-<h1>Registro</h1>
-<form (ngForm)="NuevoProyectoForm" #myForm="ngForm" (ngSubmit)="postNewProject()">
-    Project_Name: <input type="text" [(ngModel)]="project_name" name="project_name">
-    Area: <input type="text" [(ngModel)]="area" name="area">
-    Description: <input type="text" [(ngModel)]="description" name="description">
-    Search: <input type="text" [(ngModel)]="search" name="search">
-    Status: <input type="text" [(ngModel)]="status" name="status">
-    <button type="submit">Send</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <nav class="navbar navbar-light sticky-top navbar-expand-lg navbar-light bg-light" id="navbar" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="#">S7VEN</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">¿Qué hacemos?</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">El equipo</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/inicio">Accede</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+  <div class="supercontainer">
+    <div class="container1">
+        <form (ngForm)="NuevoProyectoForm" #myForm="ngForm" (ngSubmit)="postNewProject()">
+            <h3>Registro de proyecto</h3>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label>Nombre del proyecto</label>
+                <input type="text" class="form-control" id="project_name" placeholder="S7VEN" [(ngModel)]="project_name" name="project_name" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label>Área del proyecto</label>
+                <input type="text" class="form-control" id="area" placeholder="Tecnología, medio ambiente, retail..." [(ngModel)]="area" name="area" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label>Descripción</label>
+                <textarea class="form-control" id="description" placeholder="Describe tu proyecto" [(ngModel)]="description" name="description" required></textarea>
+              </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-12">
+                <label>Status</label>
+                <textarea class="form-control" id="status" placeholder="¿En qué fase está tu proyecto?" [(ngModel)]="status" name="status" required></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+                <label>¿Qué necesitas?</label>
+                <textarea type="textarea" class="form-control" id="search" placeholder="¿Con qué necesitas ayuda en tu proyecto?" [(ngModel)]="search" name="search" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Registrar!</button>
+          </form>
+    </div>
+    </div>
+
+    
+</body>
+</html>
+
+
+
+  
+
+  
+    
+  

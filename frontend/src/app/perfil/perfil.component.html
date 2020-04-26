@@ -31,29 +31,18 @@
           <li class="nav-item">
             <a class="nav-link" href="todos-proyectos">Proyectos</a>
           </li>
-          <button type="button" class="btn btn-dark" (click)="logout()">
+          <button type="button" class="btn btn-dark" (click)=logout()>
             Logout
           </button>
         </ul>
       </div>
     </nav>
     <div class="supercontainer">
-      <div class="buscador">
-      <div class="form-group col-md-12">
-        <input
-          type="text"
-          class="form-control"
-          [(ngModel)]= "filterUser"
-          name= "filterUser"
-          placeholder="¿Que necesitas?"
-        />
-      </div>
-      </div>
       <div class="card-controller">
         <div
-          *ngFor="let usuario of usuarios | filter: filterUser"
+          *ngFor="let usuario of usuarios"
           class="card"
-          style="width: 17rem;"
+          style="width: 18rem;"
         >
           <img
             src="https://cdn.pixabay.com/photo/2014/08/08/20/55/worried-girl-413690_1280.jpg"
@@ -63,14 +52,14 @@
           <div class="card-body">
             <h5 class="card-title">{{ usuario["name"] }}</h5>
             <p class="card-text">{{ usuario["city"] }}</p>
-            <p class="card-text">{{ usuario["user_area"] }}</p>
             <p class="card-text">{{ usuario["training"] }}</p>
             <p class="card-text">{{ usuario["experience"] }}</p>
             <p class="card-text">{{ usuario["offer"] }}</p>
-            <button class="btn btn-primary" disabled>Ir a perfil</button>
+            <button class="btn btn-primary" onclick="verperfil(usuario[0])">Ir a perfil</button>
           </div>
         </div>
       </div>
     </div>
   </body>
 </html>
+
