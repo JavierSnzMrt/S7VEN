@@ -11,7 +11,7 @@
       id="navbar"
       style="background-color: #e3f2fd;"
     >
-      <a class="navbar-brand" href="#">S7VEN</a>
+      <a class="navbar-brand" href="/usuarios">S7VEN</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -29,11 +29,14 @@
             <a class="nav-link" href="/usuarios">Usuarios</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="todos-proyectos">Proyectos</a>
+            <a class="nav-link" href="/verProyectos">Proyectos</a>
           </li>
-          <button type="button" class="btn btn-dark" (click)="logout()">
+          <div class="botones">
+          <button class="btn btn-dark" id= "perfil" [routerLink]="['/mi-perfil', this.id ]">Mi perfil</button>
+          <button type="button" class="btn btn-danger" id="logout" (click)="logout()">
             Logout
           </button>
+          </div>
         </ul>
       </div>
     </nav>
@@ -67,7 +70,7 @@
             <p class="card-text">{{ usuario["training"] }}</p>
             <p class="card-text">{{ usuario["experience"] }}</p>
             <p class="card-text">{{ usuario["offer"] }}</p>
-            <button class="btn btn-primary" disabled>Ir a perfil</button>
+            <button class="btn btn-primary" [routerLink]="['/perfil', this.usuario.id ]">Ir a perfil</button>
           </div>
         </div>
       </div>

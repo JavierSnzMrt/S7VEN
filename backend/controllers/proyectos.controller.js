@@ -39,13 +39,15 @@ exports.insertSingleProject= async (req,res) => {
         const description = req.body.description;
         const search = req.body.search;
         const status = req.body.status;
-        const FK_id_user = req.UsuarioID;
+        const FK_id_user = req.body.FK_id_user;
         try {
             
-            const result = await proyectosModel.insertProject(project_name, area, description, search, status, FK_id_user)
+            const result = await proyectosModel.insertProject(project_name, area, description, status, search, FK_id_user)
+            console.log(result)
             res.send(result)
         }catch(error) {
-            res.send(errors)
+            console.log(error)
+            res.send(error)
         }
     }else {
         res.status(400).send({"error": "El body está mal formado", "explicación" : errors})

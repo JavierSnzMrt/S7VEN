@@ -85,7 +85,7 @@ exports.updateUser = (id, newName, newEmail, newPassword, newAge, newCity, newTr
 exports.deleteUser = (id) => {
     return new Promise (async (resolve, reject) => {
         try{
-            const data = await connection.query(`DELETE * FROM usuarios WHERE id=${id}`)
+            const data = await connection.query(`DELETE FROM usuarios WHERE id=${id}`)
             resolve(data)
         }catch(error){
             reject(error)

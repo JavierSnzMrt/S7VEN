@@ -1,1 +1,77 @@
-<p>todos-proyectos works!</p>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-light sticky-top navbar-expand-lg navbar-light bg-light"
+      id="navbar"
+      style="background-color: #e3f2fd;"
+    >
+      <a class="navbar-brand" href="/usuarios">S7VEN</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/usuarios">Usuarios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/verProyectos">Proyectos</a>
+          </li>
+          <button class="btn btn-dark" id= "perfil" [routerLink]="['/mi-perfil', this.id ]">Mi perfil</button>
+          <button type="button" class="btn btn-danger" (click)="logout()">
+            Logout
+          </button>
+        </ul>
+      </div>
+    </nav>
+    <div class="supercontainer">
+      <div class="buscador">
+      <div class="form-group col-md-12">
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]= "filterProject"
+          name= "filterProject"
+          placeholder="¿Que tipo de proyectos buscas?"
+        />
+      </div>
+      </div>
+      <div class="card-controller">
+        <div
+          *ngFor="let proyecto of proyectos | filterProject: filterProject"
+          class="card"
+          style="width: 17rem;"
+        >
+          <img
+            src="https://cdn.pixabay.com/photo/2014/08/08/20/55/worried-girl-413690_1280.jpg"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ proyecto.project_name }}</h5>
+            <p class="card-text">Área: {{ proyecto.area }}</p>
+            <p class="card-text"> Descripción: {{ proyecto.description }}</p>
+            <p class="card-text"> Status: {{ proyecto.status }}</p>
+            <p class="card-text"> ¿Qué busco?: {{ proyecto.search }}</p>
+            <button class="btn btn-primary" [routerLink]="['/proyecto', this.proyecto.id ]">Ir a perfil</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+

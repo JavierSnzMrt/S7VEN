@@ -52,6 +52,13 @@
             <p class="card-text">Formación: {{ usuario?.training }}</p>
             <p class="card-text">Experiencia: {{ usuario?.experience }}</p>
             <p class="card-text">Ofrezco: {{ usuario?.offer }}</p>
+            <div class="button-container">
+            <button class="btn btn-primary" id="acciones" [routerLink]="['/proyectos']">Crear proyecto</button>
+            <button class="btn btn-success" id="acciones" [routerLink]="['/actualizar-perfil']">Actualizar perfil</button>
+            <button type="button" class="btn btn-danger" id="acciones" (click)=Eliminar()>
+                Eliminar cuenta
+              </button>
+            </div>
           </div>
         </div>
     </div>

@@ -28,7 +28,7 @@ server.get('/inicio', (req,res) => {
 
 //Usuarios
 server.get('/verUsuarios', UsuariosController.listaUsuarios);
-server.get('/verUsuario/:user_area', UsuariosController.getSingleUser);
+server.get('/verUsuarioAr/:user_area', UsuariosController.getSingleUser);
 server.get('/verUsuario/:id', UsuariosController.getSingleUserID);
 server.post('/nuevoUsuario', [
     check('name').isString().escape().trim(),
@@ -60,14 +60,15 @@ server.delete('/borrarUsuario/:id', UsuariosController.deleteUser);
 
 //Proyectos
 server.get('/verProyectos', ProyectosController.listaProyectos);
-server.get('/verProyecto/:area', ProyectosController.getSingleProject);
+server.get('/verProyectoAr/:area', ProyectosController.getSingleProject);
+server.get('/verProyecto/:id', ProyectosController.getSingleProjectID);
 server.post('/nuevoProyecto',[
-check('id').isNumeric,
 check('project_name').isString().escape().trim(),
 check('area').isString(),
 check('description').isString(),
 check('search').isString(),
-check('status').isString()
+check('status').isString(),
+check('FK_id_user').isNumeric()
 ],  ProyectosController.insertSingleProject);
 server.put('/actualizarProyecto', [
     check('id').isNumeric,

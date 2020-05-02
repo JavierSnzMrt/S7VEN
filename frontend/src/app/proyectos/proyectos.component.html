@@ -6,28 +6,40 @@
   <title>Document</title>
 </head>
 <body>
-    <nav class="navbar navbar-light sticky-top navbar-expand-lg navbar-light bg-light" id="navbar" style="background-color: #e3f2fd;">
-        <a class="navbar-brand" href="#">S7VEN</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="#">¿Qué hacemos?</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">El equipo</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/inicio">Accede</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+  <nav
+  class="navbar navbar-light sticky-top navbar-expand-lg navbar-light bg-light"
+  id="navbar"
+  style="background-color: #e3f2fd;"
+>
+  <a class="navbar-brand" href="/usuarios">S7VEN</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNav"
+    aria-controls="navbarNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/usuarios">Usuarios</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/verProyectos">Proyectos</a>
+      </li>
+      <button type="button" class="btn btn-danger" (click)="logout()">
+        Logout
+      </button>
+    </ul>
+  </div>
+</nav>
   <div class="supercontainer">
     <div class="container1">
-        <form (ngForm)="NuevoProyectoForm" #myForm="ngForm" (ngSubmit)="postNewProject()">
+        <form (ngForm)="NuevoProyectoForm" #myForm="ngForm" (ngSubmit)="GoProject()">
             <h3>Registro de proyecto</h3>
             <div class="form-row">
               <div class="form-group col-md-6">

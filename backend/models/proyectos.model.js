@@ -22,7 +22,7 @@ exports.getProjectById = id => {
         reject(error);
       }
     });
-  };
+};
 
 exports.getProjectByArea = area => {
 
@@ -38,12 +38,11 @@ exports.getProjectByArea = area => {
 }
 
 exports.insertProject = (project_name, area, description, search, status, FK_id_user) => {
-    
     return new Promise( async (resolve, reject) => {
         try {
             const result = await connection.query(`
                 INSERT INTO proyectos (project_name, area, description, search, status, FK_id_user)
-                VALUES ("${project_name}", "${area}", "${description}", "${search}", "${status}", ${FK_id_user}))
+                VALUES ("${project_name}", "${area}", "${description}", "${search}", "${status}", ${FK_id_user})
                 `)
             resolve(result)
         } catch (error) {

@@ -15,6 +15,11 @@ import { EquipoComponent } from './equipo/equipo.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { FilterPipe } from './pipe/filter.pipe';
 import { HacemosComponent } from './hacemos/hacemos.component';
+import { MiPerfilComponent } from './mi-perfil/mi-perfil.component';
+import { ActualizarPerfilComponent } from './actualizar-perfil/actualizar-perfil.component';
+import { MiProyectoComponent } from './mi-proyecto/mi-proyecto.component';
+import { ProyectoComponent } from './proyecto/proyecto.component';
+import { FilterProjectPipe } from './pipe//filter-project.pipe';
 
 @NgModule({
   declarations: [
@@ -28,7 +33,12 @@ import { HacemosComponent } from './hacemos/hacemos.component';
     EquipoComponent,
     PerfilComponent,
     FilterPipe,
-    HacemosComponent
+    HacemosComponent,
+    MiPerfilComponent,
+    ActualizarPerfilComponent,
+    MiProyectoComponent,
+    ProyectoComponent,
+    FilterProjectPipe
   ],
   imports: [
     BrowserModule,

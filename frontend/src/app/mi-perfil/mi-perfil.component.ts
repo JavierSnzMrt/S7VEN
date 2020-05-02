@@ -1,17 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
-import { HttpClient, HttpHeaders }from '@angular/common/http';
 import { ActivatedRoute, Params } from '@angular/router';
+import { HttpClient, HttpHeaders }from '@angular/common/http';
+import { Router } from '@angular/router';
+
 @Component({
-  selector: 'app-perfil',
-  templateUrl: './perfil.component.html',
-  styleUrls: ['./perfil.component.css']
+  selector: 'app-mi-perfil',
+  templateUrl: './mi-perfil.component.html',
+  styleUrls: ['./mi-perfil.component.css']
 })
-export class PerfilComponent implements OnInit {
+export class MiPerfilComponent implements OnInit {
 
   id: number;
 
-  constructor(private _user: UserService, private _http: HttpClient, private rutaActiva: ActivatedRoute ) {}
+  constructor(private _user: UserService, private _http: HttpClient, private rutaActiva: ActivatedRoute, private _router: Router) { }
 
   usuario: {
     name: string;
@@ -27,6 +29,16 @@ export class PerfilComponent implements OnInit {
 
   logout(){
     this._user.logout();
+  }
+
+  Eliminar(){
+    this.id=this.rutaActiva.snapshot.params.id
+    console.log(this.id);
+    this._http.delete(`http://localhost:3000/borrarUsuario/${this.id}`, {withCredentials: true})
+    .subscribe((responseAPI) => {
+      console.log(responseAPI);
+      this._router.navigateByUrl("/login");
+    })
   }
 
   ngOnInit(): void {

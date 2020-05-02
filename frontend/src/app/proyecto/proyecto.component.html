@@ -29,8 +29,9 @@
             <a class="nav-link" href="/usuarios">Usuarios</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/verProyectos">Proyectos</a>
+            <a class="nav-link" href="todos-proyectos">Proyectos</a>
           </li>
+          <button class="btn btn-dark" id= "perfil" [routerLink]="['/mi-perfil', this.id ]">Mi perfil</button>
           <button type="button" class="btn btn-danger" (click)=logout()>
             Logout
           </button>
@@ -47,14 +48,18 @@
             alt="..."
           />
           <div class="card-body">
-            <h5 class="card-title">{{ usuario?.name }}</h5>
-            <p class="card-text">Ciudad: {{ usuario?.city }}</p>
-            <p class="card-text">Formación: {{ usuario?.training }}</p>
-            <p class="card-text">Experiencia: {{ usuario?.experience }}</p>
-            <p class="card-text">Ofrezco: {{ usuario?.offer }}</p>
+            <h5 class="card-title">{{ proyecto?.project_name }}</h5>
+            <p class="card-text">Área: {{proyecto?.area }}</p>
+            <p class="card-text">Descripción: {{ proyecto?.description }}</p>
+            <p class="card-text">Status: {{ proyecto?.status }}</p>
+            <p class="card-text">¿Qué busca?: {{ proyecto?.search }}</p>
+          </div>
           </div>
         </div>
-    </div>
   </body>
 </html>
+
+
+
+
 

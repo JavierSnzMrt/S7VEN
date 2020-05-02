@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
+import { UserService } from '../services/user.service';
+import { ProjectService } from '../services/project.service';
 
 @Component({
   selector: 'app-proyectos',
@@ -12,34 +14,30 @@ export class ProyectosComponent implements OnInit {
 
   NuevoProyectoForm: FormGroup;
   
-  constructor(private _http: HttpClient, private _router: Router) { }
-
+  constructor(private _http: HttpClient, private _router: Router, private _user: UserService, private _project: ProjectService) { }
+  
+  proyectos: object;
   project_name: string;
   area: string;
   description:string;
   search: string;
   status: string;
+  fk_id_user:number;
 
-  postNewProject(){
-    this._http.post("http://localhost:3000/nuevoProyecto", {
-      "project_name":this.project_name,
-      "area": this.area,
-      "description": this.description,
-      "search": this.search,
-      "status": this.status,
-    }, {withCredentials: true})
-    .subscribe((responseAPI) => {
-      this._router.navigateByUrl("/verProyectos")
-    })
+  logout(){
+    this._user.logout();
   }
-
-  proyectos: object;
   
+
+ GoProject(){
+  this.fk_id_user=this._user.getUserId()
+  this._project.postNewProject(this.project_name, this.area, this.description, this.search, this.status, this.fk_id_user)
+}
+ 
+  
+
   ngOnInit(): void {
-    this._http.post("http://localhost:3000/nuevoProyecto", {withCredentials: true})
-    .subscribe((responseAPI) => {
-      this.proyectos = responseAPI;
-    })
+    
   }
 
 }
